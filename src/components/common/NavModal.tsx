@@ -37,47 +37,24 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
       <div
         onClick={handleOnClose}
         id="modalcontainer"
-        className="fixed inset-0 bg-black bg-opacity-[0.6] backdrop-blur-sm flex items-center justify-center z-50"
+        className="fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-sm flex items-center justify-center z-50"
       >
-        <div className="h-[70vh] w-[80vw] font-spaceGrotesk lg:w-[30%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-col">
-          <div
-            className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-            onClick={() => handleMenuClick('about-section')}
-          >
-            About Us
+        <div className="h-full w-full font-spaceGrotesk lg:w-[100%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-row">
+          <div className="w-[40%] h-full flex justify-end tracking-[1rem] items-center flex-col">
+            <div className="w-full h-[20%]">
+              <p className="text-8xl text-white opacity-20">Ratio</p>
+            </div>
+            <div className="w-full h-[20%]">
+              <p className="text-8xl text-white opacity-40">Funda</p>
+            </div>
+            <div className="w-full h-[20%]">
+              <p className="text-8xl text-white opacity-70">Quant</p>
+            </div>
+            <div className="w-full h-[20%]">
+              <p className="text-8xl text-white opacity-100">Senti Ratio</p>
+            </div>
           </div>
-
-          <div
-            className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-            onClick={() => handleMenuClick('timeline-section')}
-          >
-            Timeline
-          </div>
-          <div
-            className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-            onClick={() => handleMenuClick('events-section')}
-          >
-            Events
-          </div>
-          <div
-            className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-            onClick={() => handleMenuClick('patrons-section')}
-          >
-            Patrons
-          </div>
-          {/* <div
-                        className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-                        onClick={() => router.push('/team#organizing-team')}
-                    >
-                        Team
-                    </div> */}
-
-          <div
-            className="cursor-pointer w-[60%] h-[10%] text-center flex justify-around items-center hover:text-black text-white"
-            onClick={() => handleMenuClick('contact-section')}
-          >
-            Contact Us
-          </div>
+          <div className="w-[60%] h-full">asd</div>
         </div>
       </div>
     </>
