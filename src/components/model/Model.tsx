@@ -14,9 +14,8 @@ const Model = () => {
   return (
     <>
       <Spline
-        // className={`max-md:my-12 ${isLoading ? 'hidden' : ''}`}
         style={{ height: '100%', width: '100%' }}
-        scene="https://draft.spline.design/ebrZwmCwucSr4Ut9/scene.splinecode"
+        scene="https://draft.spline.design/RyM7ODqOz18u3cUT/scene.splinecode"
       />
     </>
   );
