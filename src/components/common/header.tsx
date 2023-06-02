@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useWindowHeight } from '@react-hook/window-size';
 import { useRouter } from 'next/router';
 import HamburgerMenu from './hamburger';
+import NavModal from './NavModal';
 
 const Header = () => {
   const [modalVisibility, setModalVisibility] = useState(false);
@@ -56,7 +57,7 @@ const Header = () => {
   return (
     <>
       <div className="flex justify-around items-center py-3 w-[100%]">
-        <HamburgerMenu />
+        <HamburgerMenu setModalVisibility={setModalVisibility} />
       </div>
 
       {/* <div
@@ -105,7 +106,7 @@ const Header = () => {
         </div>
         <div className="w-[80%] "></div>
       </div> */}
-      {/* {modalVisibility !== false && (
+      {modalVisibility !== false && (
         <NavModal
           modalVisibility={setModalVisibility}
           visible={true}
@@ -113,7 +114,7 @@ const Header = () => {
           //     setModalData();
           // }}
         />
-      )} */}
+      )}
     </>
   );
 };
