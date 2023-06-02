@@ -14,8 +14,8 @@ const Model = () => {
   return (
     <>
       <Spline
-        style={{ height: '100%', width: '100%' }}
-        scene="https://draft.spline.design/RyM7ODqOz18u3cUT/scene.splinecode"
+        style={{ height: '100%', width: '100%', borderRadius: '100px' }}
+        scene="https://draft.spline.design/9jOtr8jogEDGTROB/scene.splinecode"
       />
     </>
   );

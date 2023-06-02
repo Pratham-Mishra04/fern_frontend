@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Bronson';
+  src: url('../../public/BronsonBlack.ttf');
+}
+
 html {
   background-color: black;
   color: white;
