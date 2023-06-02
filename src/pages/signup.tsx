@@ -1,23 +1,139 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Signup = () => {
   return (
     <div className="w-screen h-screen bg-[#1f1f1f] flex justify-center items-center">
-      <div className="w-1/4 h-2/3 bg-white rounded-xl flex flex-col py-12 px-16 text-black items-center">
+      <div className="w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center white-shadow">
         <div className="uppercase font-Poppins font-semibold text-4xl">
           Sign-up
         </div>
-        <div className="w-full flex flex-col">
-          <div className="relative h-10 w-full min-w-[200px] border-black">
+        <div className="w-full flex flex-col gap-4 py-8 font-Poppins">
+          <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
-              className="peer h-full w-full rounded-[7px] border border-black bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-teal-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-              placeholder=" "
+              type="text"
+              name=""
+              id=""
+              className="focus:outline-none text-sm px-2 w-5/6"
+              placeholder="Enter your Country"
             />
-            <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-teal-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-teal-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-teal-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-              Input Teal
+            <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
+              Country
             </label>
+            <Image
+              className="w-6 h-6"
+              width={10000}
+              height={10000}
+              alt="/"
+              src={'/globe.png'}
+            />
+          </div>
+
+          <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
+            <input
+              type="text"
+              name=""
+              id=""
+              className="focus:outline-none text-sm px-2 w-5/6"
+              placeholder="Enter your Name"
+            />
+            <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
+              Name
+            </label>
+            <Image
+              className="w-6 h-6"
+              width={10000}
+              height={10000}
+              alt="/"
+              src={'/user.png'}
+            />
+          </div>
+
+          <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
+            <input
+              type="text"
+              name=""
+              id=""
+              className="focus:outline-none text-sm px-2 w-5/6"
+              placeholder="Enter your Mobile Number"
+            />
+            <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
+              Mobile Number
+            </label>
+            <Image
+              className="w-6 h-6"
+              width={10000}
+              height={10000}
+              alt="/"
+              src={'/phone.png'}
+            />
+          </div>
+
+          <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
+            <input
+              type="email"
+              autoComplete="false"
+              name=""
+              id=""
+              className="focus:outline-none text-sm px-2 w-5/6"
+              placeholder="Enter your Email"
+            />
+            <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
+              Email
+            </label>
+            <Image
+              className="w-6 h-6"
+              width={10000}
+              height={10000}
+              alt="/"
+              src={'/email.png'}
+            />
+          </div>
+          <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
+            <input
+              type="password"
+              autoComplete="false"
+              name=""
+              id=""
+              className="focus:outline-none text-sm px-2 w-5/6"
+              placeholder="Enter your Password"
+            />
+            <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
+              Password
+            </label>
+            <Image
+              className="w-6 h-6"
+              width={10000}
+              height={10000}
+              alt="/"
+              src={'/lock.png'}
+            />
           </div>
         </div>
+        <Link
+          href="#_"
+          className="relative inline-flex items-center px-12 py-2 overflow-hidden text-lg font-medium text-black border-2 border-black rounded-full hover:text-white group hover:bg-gray-50"
+        >
+          <span className="absolute left-0 block w-full h-0 transition-all bg-black opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
+          <span className="absolute right-0 flex items-center justify-start w-10 h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              ></path>
+            </svg>
+          </span>
+          <span className="relative">Sign Up</span>
+        </Link>
       </div>
     </div>
   );

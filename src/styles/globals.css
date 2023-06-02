@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  overflow-x: hidden;
-}
-
 html {
   background-color: black;
   color: white;
+}
+
+.white-shadow {
+  box-shadow: 15px 15px rgb(159, 159, 159);
 }
