@@ -56,7 +56,8 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
           </div>
           <div className="w-[60%] h-full flex flex-col justify-end items-center">
             <div className="w-full h-[20%]">
-              <p className="text-3xl text-white opacity-100">Ratio</p>
+              <p className="text-2xl text-white opacity-100">Assumptions</p>
+              <p className="text-2xl text-white opacity-100">Disclaimer</p>
             </div>
           </div>
         </div>
