@@ -1,8 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import postHandler from '@/handlers/postHandler';
+import { DEV_BACKEND_URL } from '../../constants';
 
 const Signup = () => {
+  const [user, setUser] = useState('');
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUser((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const form = {
+      ...user,
+    };
+
+    const formData = new FormData();
+
+    formData.append('name', form.name);
+    formData.append('email', form.email);
+    formData.append('username', form.description);
+    formData.append('password', form.category);
+    formData.append('phoneNo', String(form.isPrivate));
+
+    const URL = `${DEV_BACKEND_URL}/users/signup`;
+
+    const res = await postHandler(URL, formData, true);
+
+    if (res.status === 1) {
+      setUser({
+        title: '',
+        tagline: '',
+        images: [],
+        description: '',
+        tags: '',
+        category: '',
+        isPrivate: false,
+      });
+    }
+  };
+
   return (
     <div className="w-screen h-screen bg-[#1f1f1f] flex justify-center items-center">
       <div className="w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center white-shadow">
