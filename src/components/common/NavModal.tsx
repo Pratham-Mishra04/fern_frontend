@@ -37,24 +37,28 @@ const NavModal = ({ modalVisibility, visible }: Props) => {
       <div
         onClick={handleOnClose}
         id="modalcontainer"
-        className="fixed inset-0 bg-black bg-opacity-[0.8] backdrop-blur-sm flex items-center justify-center z-50"
+        className="fixed top-[10vh] inset-0 bg-black bg-opacity-[0.8] backdrop-blur-sm flex items-center justify-center z-50"
       >
-        <div className="h-full w-full font-spaceGrotesk lg:w-[100%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-row">
+        <div className="h-[90vh] w-full font-spaceGrotesk lg:w-[100%]  glassMorphism3 rounded-lg text-3xl lg:text-3xl flex justify-around items-center flex-row">
           <div className="w-[40%] h-full flex justify-end tracking-[1rem] items-center flex-col">
             <div className="w-full h-[20%]">
-              <p className="text-8xl text-white opacity-20">Ratio</p>
+              <p className="text-8xl text-white opacity-20">Senti</p>
             </div>
             <div className="w-full h-[20%]">
-              <p className="text-8xl text-white opacity-40">Funda</p>
+              <p className="text-8xl text-white opacity-40">Quant</p>
             </div>
             <div className="w-full h-[20%]">
-              <p className="text-8xl text-white opacity-70">Quant</p>
+              <p className="text-8xl text-white opacity-70">Funda</p>
             </div>
             <div className="w-full h-[20%]">
-              <p className="text-8xl text-white opacity-100">Senti Ratio</p>
+              <p className="text-8xl text-white opacity-100">Ratio</p>
             </div>
           </div>
-          <div className="w-[60%] h-full">asd</div>
+          <div className="w-[60%] h-full flex flex-col justify-end items-center">
+            <div className="w-full h-[20%]">
+              <p className="text-3xl text-white opacity-100">Ratio</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
