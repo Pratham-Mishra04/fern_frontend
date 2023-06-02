@@ -3,47 +3,32 @@ import Image from 'next/image';
 import Link from 'next/link';
 import postHandler from '@/handlers/postHandler';
 import { DEV_BACKEND_URL } from '../../constants';
+import { signup } from '@/controllers/authController';
+import { useRouter } from 'next/router';
 
 const Signup = () => {
-  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [phoneNo, setPhoneNo] = useState('');
+  // const [country, setCountry] = useState('');
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUser((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  const router = useRouter();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const form = {
-      ...user,
+  const handleSubmit = async () => {
+    const formdata = {
+      phoneNo,
+      email,
+      name,
+      username,
+      password,
+      confirmPassword: password,
     };
 
-    const formData = new FormData();
-
-    formData.append('name', form.name);
-    formData.append('email', form.email);
-    formData.append('username', form.description);
-    formData.append('password', form.category);
-    formData.append('phoneNo', String(form.isPrivate));
-
-    const URL = `${DEV_BACKEND_URL}/users/signup`;
-
-    const res = await postHandler(URL, formData, true);
-
+    const res = await signup(formdata);
     if (res.status === 1) {
-      setUser({
-        title: '',
-        tagline: '',
-        images: [],
-        description: '',
-        tags: '',
-        category: '',
-        isPrivate: false,
-      });
+      router.push('/');
     }
   };
 
@@ -60,10 +45,12 @@ const Signup = () => {
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
-              placeholder="Enter your Country"
+              placeholder="Enter your Username"
+              value={username}
+              onChange={(el) => setUsername(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
-              Country
+              Username
             </label>
             <Image
               className="w-6 h-6"
@@ -81,6 +68,8 @@ const Signup = () => {
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Name"
+              value={name}
+              onChange={(el) => setName(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Name
@@ -101,6 +90,8 @@ const Signup = () => {
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Mobile Number"
+              value={phoneNo}
+              onChange={(el) => setPhoneNo(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Mobile Number
@@ -122,6 +113,8 @@ const Signup = () => {
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Email"
+              value={email}
+              onChange={(el) => setEmail(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Email
@@ -142,6 +135,8 @@ const Signup = () => {
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Password"
+              value={password}
+              onChange={(el) => setPassword(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Password
@@ -176,7 +171,9 @@ const Signup = () => {
               ></path>
             </svg>
           </span>
-          <span className="relative">Sign Up</span>
+          <span className="relative" onClick={handleSubmit}>
+            Sign Up
+          </span>
         </Link>
       </div>
     </div>

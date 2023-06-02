@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { login } from '@/controllers/authController';
+import { useRouter } from 'next/router';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const router = useRouter();
+
+  const handleSubmit = async () => {
+    const formdata = {
+      username,
+      password,
+    };
+
+    const res = await login(formdata);
+    if (res.status === 1) {
+      router.push('/');
+    }
+  };
+
   return (
     <div className="w-screen h-screen bg-[#1f1f1f] flex justify-center items-center">
       <div className="w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center white-shadow">
@@ -12,22 +31,24 @@ const Login = () => {
         <div className="w-full flex flex-col gap-8 py-12 font-Poppins">
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
-              type="email"
+              type="text"
               autoComplete="false"
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
-              placeholder="Enter your Email"
+              placeholder="Enter your Username"
+              value={username}
+              onChange={(el) => setUsername(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
-              Email
+              Username
             </label>
             <Image
               className="w-6 h-6"
               width={10000}
               height={10000}
               alt="/"
-              src={'/email.png'}
+              src={'/user.png'}
             />
           </div>
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
@@ -38,6 +59,8 @@ const Login = () => {
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Password"
+              value={password}
+              onChange={(el) => setPassword(el.target.value)}
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Password
@@ -72,7 +95,9 @@ const Login = () => {
               ></path>
             </svg>
           </span>
-          <span className="relative">Login</span>
+          <span className="relative" onClick={handleSubmit}>
+            Login
+          </span>
         </Link>
       </div>
     </div>
