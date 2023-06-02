@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const genericHamburgerLine = `h-1 w-6 my-1 rounded-full bg-white transition ease transform duration-300`;
+  const genericHamburgerLine = `h-1 w-8 my-1 rounded-full bg-white transition ease transform duration-300`;
 
   return (
     <button
@@ -18,7 +18,7 @@ const HamburgerMenu = () => {
       />
       <div
         className={`${genericHamburgerLine} ${
-          isOpen ? 'opacity-0' : 'opacity-100 group-hover:opacity-100'
+          isOpen ? 'opacity-0' : 'opacity-0 group-hover:opacity-0'
         }`}
       />
       <div

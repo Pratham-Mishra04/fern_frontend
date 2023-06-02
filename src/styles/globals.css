@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
-* {
-}
-
-=======
->>>>>>> dd357c208411ee1ba0ccb960edc963429d06a179
 html {
   background-color: black;
   color: white;
