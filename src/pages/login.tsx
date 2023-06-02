@@ -8,6 +8,8 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const [hover, setHover] = useState(false);
+
   const router = useRouter();
 
   const handleSubmit = async () => {
@@ -24,7 +26,13 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen bg-[#1f1f1f] flex justify-center items-center">
-      <div className="w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center white-shadow">
+      <div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={`w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center transition-all duration-300 ease-in-out ${
+          hover ? 'white-shadow' : ''
+        }`}
+      >
         <div className="uppercase font-Poppins font-semibold text-6xl">
           Login
         </div>
@@ -32,7 +40,7 @@ const Login = () => {
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
               type="text"
-              autoComplete="false"
+              autoComplete="new-password"
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
@@ -54,7 +62,7 @@ const Login = () => {
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
               type="password"
-              autoComplete="false"
+              autoComplete="new-password"
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"

@@ -14,6 +14,8 @@ const Signup = () => {
   const [phoneNo, setPhoneNo] = useState('');
   // const [country, setCountry] = useState('');
 
+  const [hover, setHover] = useState(false);
+
   const router = useRouter();
 
   const handleSubmit = async () => {
@@ -33,8 +35,16 @@ const Signup = () => {
   };
 
   return (
-    <div className="w-screen h-screen bg-[#1f1f1f] flex justify-center items-center">
-      <div className="w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center white-shadow">
+    <div
+      className={`w-screen h-screen bg-[#1f1f1f] flex justify-center items-center`}
+    >
+      <div
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        className={`w-1/3 bg-white rounded-lg flex flex-col py-12 px-20 text-black items-center transition-all duration-300 ease-in-out ${
+          hover ? 'white-shadow' : ''
+        }`}
+      >
         <div className="uppercase font-Poppins font-semibold text-4xl">
           Sign-up
         </div>
@@ -108,7 +118,7 @@ const Signup = () => {
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
               type="email"
-              autoComplete="false"
+              autoComplete="new-password"
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
@@ -130,13 +140,13 @@ const Signup = () => {
           <div className="w-full relative border-[#5f5f5f] border-[2px] flex justify-between py-4 px-2 rounded-2xl">
             <input
               type="password"
-              autoComplete="false"
               name=""
               id=""
               className="focus:outline-none text-sm px-2 w-5/6"
               placeholder="Enter your Password"
               value={password}
               onChange={(el) => setPassword(el.target.value)}
+              autoComplete="new-password"
             />
             <label className="bg-white absolute top-0 translate-y-[-50%] px-1 font-semibold text-xs text-[#5f5f5f]">
               Password
